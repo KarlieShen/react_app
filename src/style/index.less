@@ -1,0 +1,442 @@
+html {
+	background-color: #fafafa;
+};
+body {
+	margin: 0;
+}
+.test {
+	display: flex;
+	flex-direction: column;
+}
+//导航栏
+.nav-container {
+	flex-basis: 20%;
+	box-shadow: 0 3px 4px 0 rgba(0,0,0,.04), 0 3px 3px -2px rgba(0,0,0,.06), 0 1px 8px 0 rgba(0,0,0,.12);
+	background-color: #fff;
+	.nav {
+		display: flex;
+		li {
+			margin-right: 35px;
+			list-style-type: none;
+		}
+	}
+}
+
+.active {
+	font-weight: 600;
+}
+a {
+	text-decoration: none;
+}
+.home-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    .HomeTop {
+        width: 100%;
+        position: relative;
+        height: 470px;
+        text-align: center;
+        z-index: 0;
+        background: url(https://z1.zhimg.com/images/6a263d8b.patterns.svg) center no-repeat;
+        p {
+            position: relative;
+            top: 42%;
+            transform: rotate(-22deg);
+            font-size: 18px;
+        }
+    }
+}
+.button {
+	color: #e6e6e6;
+	background-color: #0a0a0a;
+	border: none;
+	font-size: 16px;
+	border-radius: 3px;
+	width: 200px;
+	text-align: center;
+	display: block;
+	padding: 7px 0;
+	margin: 10px auto;
+}
+
+.button:hover:enabled {
+	background-color: linear-gradient(#1a1a1a, #0a0a0a);
+	color: #fff;
+	text-decoration: none;
+}
+.button:active {
+	transform: translateY(1px); 
+}
+//云打印页面样式
+.eprint-container {
+	flex-basis: 80%;
+    width: 100%;
+    .eprint-wrapper {
+        .eprint-notice-dialog-face {           
+            position: fixed;
+            background: #9e9a9a;
+            height: 100%;
+            width: 100%;
+            z-index: 900;
+            top: 0;
+            left: 0;
+            opacity: 0.9;
+            .eprint-notice-content {
+                position: absolute;
+                z-index: 1000;
+                top: 40px;
+                left: 50%;
+                width: 700px;
+                padding: 12px 30px 30px;
+                box-shadow: 0 3px 4px 0 rgba(0,0,0,.04), 0 3px 3px -2px rgba(0,0,0,.06), 0 1px 8px 0 rgba(0,0,0,.12);
+                box-sizing: border-box;
+                background-color: #fff;
+                font-size: 15px;
+                transform: translateX(-350px);
+                .eprint-notice-cancel {
+                    right: 10px;
+                    position: absolute;
+                    padding: 6px 16px;
+                    background-color: #3d75e5;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 5px;
+                    bottom: 10px;
+                };
+            }
+            &.disappear {
+                display: none;
+            }
+        }
+        width: 93%;
+        margin: 20px auto;
+        .eprint-main-title {
+            display: flex;
+            justify-content: space-between;
+            .eprint-header {                
+                flex-basis: 40%;
+                font-size: 20px;
+                font-weight: 500;
+            };
+            .eprint-notice-btn {
+                flex-basis: 25%;                
+                display: flex;
+                justify-content: space-between;
+                .print-btn {
+                    border: 1px solid #0383FE;
+                    border-radius: 5px;
+                    color: #459df5;
+                    font-size: 18px;
+                    flex-basis: 45%;
+                    text-align: center;
+                    background-color: transparent;
+                } 
+            };
+        };
+        .eprint-main {
+            margin: 20px 0;
+            display:flex;
+            justify-content: space-between;
+            .eprint-main-left {
+                box-shadow: 0 3px 4px 0 rgba(0,0,0,.04), 0 3px 3px -2px rgba(0,0,0,.06), 0 1px 8px 0 rgba(0,0,0,.12);
+                background-color: #fff;
+                flex-basis: 50%;
+            };
+            .eprint-main-right {
+                box-shadow: 0 3px 4px 0 rgba(0,0,0,.04), 0 3px 3px -2px rgba(0,0,0,.06), 0 1px 8px 0 rgba(0,0,0,.12);
+                background-color: #fff;
+                flex-basis: 40%;
+                .eprint-main-right-t {
+                    text-align: center;
+                    font-size: 18px;
+                    border-bottom: 2px solid #f1eded;
+                    padding-bottom: 1em;
+                }
+                .eprint-main-right-file {
+                    display: flex;
+                    flex-direction:column;
+                    margin: 1em;
+                    .eprint-file-info {
+                        margin: 10px;
+                        a {
+                            position: relative;
+                            padding: 10px;
+                            text-align: center;
+                            color: #fff;
+                            background-color: #3d75e5;
+                            display: block;
+                            .eprint-file-input {
+                                position: absolute;
+                                height: 100%;
+                                width:100%;
+                                top:0;
+                                left:0;
+                                opacity: 0;
+                            }
+                        }
+                        span {
+                            margin-right: 20px;
+                        }
+                    };
+                    .eprint-file-info:first-child {
+                        display: flex;
+                        justify-content: space-between;
+                        .part-one {
+                            display:flex;
+                            flex-basis: 42%;
+                            justify-content: space-between;
+                            span {
+                                flex-basis: 45%;
+                                margin-right:0;
+                            }
+                            .form-option {
+                                border:none;
+                                flex-basis: 45%
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .eprint-form-wrapper {
+            box-shadow: 0 3px 4px 0 rgba(0,0,0,.04), 0 3px 3px -2px rgba(0,0,0,.06), 0 1px 8px 0 rgba(0,0,0,.12);
+            background-color: #fff;
+            .eprint-form-t {
+                background-color: #3d75e5;
+                color: #fff;
+                padding: 8px;
+                text-align: left;
+            }
+            .eprint-form-table {
+                border: none;
+                width: 100%;
+                text-align: center;
+                border-collapse: collapse;
+                .cell {
+                    color: #8c8c8c;
+                    border-bottom: 1px solid #8c8c8c;
+                    height: 64px;
+                };
+                tr {
+                    border-bottom: 2px solid #f1eded;
+                };
+                .eprint-form-table-head{ 
+                    vertical-align: middle;
+                    .eprint-table-head-row {
+                        
+                    }                                                           
+                };
+                .eprint-form-table-body{
+                    .eprint-table-body-row:hover {
+                        background-color: #eee;
+                    }
+                                       
+                };
+            };
+            .eprint-remark {
+                margin: 20px auto;
+                width:96%;
+                display:flex;
+                flex-direction: column;
+                .eprint-form-text {
+                    
+                }
+                .eprint-form-submit {
+                    margin: 20px 0;
+                    display:flex;
+                    justify-content: flex-end;
+                    .submit-button {
+                        border-radius: 8px;
+                        flex-basis: 10%;
+                        background-color: #3d75e5;
+                        color: #fff;
+                    }
+                }
+            };
+        }       
+    }
+}
+//豆瓣读书页面样式
+.reading-container {
+    margin: 20px;
+    display:flex;
+    justify-content: space-between;
+    .hd {
+        padding-bottom: 8px;
+        border-bottom: 1px solid #999;
+    }
+    .popular-books {
+        flex-basis: 70%;
+        .book {
+            flex-basis: 15%;
+            display: flex;
+            justify-content: space-between;
+            .single {
+                flex-basis: 48%;
+                display: flex;
+                flex-direction: column;
+                align-content: space-between;
+                .up {
+                    flex-basis: 60%;
+                    display: flex;
+                    justify-content: space-between;
+                    .photo {
+                        margin: 0;
+                        flex-basis: 45%;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    };
+                    .photo-info {
+                        flex-basis: 52%;
+                        a:hover {
+                            color:#fff;
+                            background-color: #3377aa;
+                        }
+                    }
+                };
+                .down {
+                    flex-basis: 38%;
+                    color: #666;
+                    padding-top: 15px;
+                }
+            }
+        }
+    };
+    .aside {
+        flex-basis: 25%;
+        margin-right: 20px;
+        .book {
+            flex-basis: 12%;
+            display: flex;
+            justify-content: space-between;
+            .single {
+                flex-basis: 48%;
+                display: flex;
+                flex-direction: column;
+                align-content: space-between;
+                .up {
+                    margin: 0;
+                    flex-basis: 80%;
+                    display: flex;
+                    justify-content: space-between;  
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }                 
+                };
+                .name {
+                    margin-top: 3px;
+                    text-align: center;
+                    color: #666;
+                }
+            }
+        }
+
+    };
+    .popular-books, .aside {       
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;        
+    };
+    
+}
+//图表页面样式
+.flex {
+    display: -webkit-box; 
+    display: -moz-box; 
+    display:-webkit-flex;
+    display: -ms-flexbox;
+    display:flex;
+}
+.chartBorder {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: -1px 1px 7px rgba(0, 0, 0,0.27);
+}
+.flexBasis(@flexBasis) {
+    .flex;
+    flex-basis: @flexBasis;
+}
+.justify(@justifyContent) {
+    .flex;
+    justify-content:@justifyContent;   
+}
+.data-analyze-system{
+	flex-basis: 80%;
+    width: 100%;
+    .container {            
+        .flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 10px 30px;
+        .contain {
+            .justify(space-between);
+            align-items: start;
+            height: 140px;
+            margin: 20px 0;
+            .stu-grade {
+                height: 100%;
+                .flexBasis(70%);
+                .chartBorder;
+                .stu-sum {
+                    text-align: center;
+                    margin: auto;
+                    flex: 1;
+                    .label {
+                        font-size: 14px;
+                        color: #aaa;
+                        margin-bottom: 10px;
+                    }
+                    .number {
+                        font-weight: 600;
+                        color: rgb(103, 202, 250);
+                        font-size: 29px;
+                    }
+                }
+            };
+            .gender-radio {
+                flex-basis:25%;
+                .chartBorder;
+                height:100%;          
+            }  
+        };         
+        .bubble-rose {  
+        flex-wrap: wrap;         
+            .justify(space-between);
+            .part-1, .part-2 {
+                flex-basis: 48%;                
+                .distributed-bubble, .elective-result-rose {
+                    margin: 20px 0;
+                    height: 500px;
+                    .chartBorder;
+                    .justify(space-around);
+                    flex-direction: column;
+                    #distributedBubble, #electiveResultRose {
+                        flex-basis: 87%;
+                    };
+                }
+            };                               
+        }
+        .career-orientation {
+            .chartBorder;
+            margin: 20px 0;            
+            height: 500px;
+            flex-direction: column;
+            .justify(space-around);
+        }
+        .bar-stack {
+            .chartBorder;
+            margin: 20px 0;
+            height: 500px;
+            .justify(flex-end);
+            flex-direction: column;                      
+        }
+        .text-bar-stack {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>karlie's react app</title>
+	<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+  	<script>    
+        $(document).ready(function() {
+          thingiurlbase = "src/stlviewer/js/thingiview";
+              thingiview = new Thingiview("stlviewer");
+              thingiview.setObjectColor('#C0D8F0');
+              thingiview.setBackgroundColor('#fff');
+          thingiview.initScene();
+              thingiview.setCameraView('iso');
+    
+          if (!Modernizr.draganddrop) {
+            $('#message').html("Your browser cannot handle drag and drop.");
+          }
+    
+          function handleDrop(e) {
+            e.stopPropagation(); // Stops some browsers from redirecting.
+            e.preventDefault();
+    
+            var files = e.currentTarget.files;
+            for (var i = 0, f; f = files[i]; i++) {
+              // Read the File objects in this FileList.
+    
+              if (!/.*\.stl$/i.test(f.name)){
+                alert("File type not recognised.")
+                continue;
+              }
+              
+              var reader = new FileReader();
+    
+              // Closure to capture the file information.
+              reader.onload = (function(theFile) {
+                return function(e) {
+    
+                  var fileContents = e.target.result;
+    
+                  if (fileContents.match(/^solid/)) {
+                    thingiview.loadSTLString(fileContents);
+    
+                  } else {
+                    var reader2 = new FileReader();
+                    reader2.onload = (function(theFile){
+                      return function(e) {
+                        thingiview.loadSTLBinary(e.target.result);
+                      };
+                    })(theFile);
+                    reader2.readAsBinaryString(theFile);
+                  }
+                };
+              })(f);
+    
+              reader.readAsText(f);
+    
+              $('#message').text(f.name);
+            }
+          }
+          
+          var dropZone = document.getElementById("eprint-file-input");
+          dropZone.addEventListener('change', handleDrop, false);
+    
+          // for Firefox
+          dropZone.ondragover = function(e) {
+              e.preventDefault();
+          };
+    
+          $('#backround_colour').change(function(){
+            thingiview.setBackgroundColor('#'+$(this).val());
+          });
+    
+          $('#model_colour').change(function(){
+            thingiview.setObjectColor('#'+$(this).val());
+          });   
+        });
+    </script>
+</head>
+<body>
+  	<div id="root"></div>
+  	<script src="./dist/bundle.js" type="text/javascript"></script>
+    <script src="src/stlviewer/js/jquery.js"></script>
+    <script src="src/stlviewer/js/modernizr.js"></script>
+    <script src="src/stlviewer/js/jscolor/jscolor.js"></script>
+    <script src="src/stlviewer/js/thingiview/Three.js"></script>
+    <script src="src/stlviewer/js/thingiview/plane.js"></script>
+    <script src="src/stlviewer/js/thingiview/thingiview.js"></script>
+</body>
+</html>

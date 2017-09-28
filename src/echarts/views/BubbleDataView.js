@@ -1,13 +1,9 @@
 import * as React from 'react'
-import {Select, Tabs} from 'antd'
 import EchartsContainer from '../EchartsContainer'
 import { bubble, pieRose } from '../Echarts-demo/EchartsFactory' 
 import {  getGradeClassInfo, getCareerType, 
     getSubject, getRangesList 
 } from "../../../common/DataAnalysisContext"
-const Tabpane = Tabs.TabPane;
-const Option = Select.Option;
-
 
 export default class SchoolDataAnalysis extends React.Component<SchoolDataAnalysisProps, SchoolDataAnalysisState> {
     constructor(props) {

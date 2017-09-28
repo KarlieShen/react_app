@@ -56,7 +56,7 @@ export default class Battle extends React.Component {
                                     <select name="color-hex" className="form-option">
                                         <option value="#ffffff">白色</option>
                                         <option value="#ff9800">黄色</option>
-                                        <option value="#1d37c3" selected>蓝色</option>
+                                        <option value="#1d37c3">蓝色</option>
                                         <option value="#e5edef">银色</option>
                                         <option value="#000000">黑色</option>
                                         <option value="#9fa5a7">灰色</option>
@@ -96,7 +96,7 @@ export default class Battle extends React.Component {
                     </div>
                 </div>
                 <div className="eprint-form-wrapper">
-                    <form action="./create" method="post" acceptCharset="utf-8" className="eprint-form" id="eprint-form" encType="multipart/form-data">
+                    <form acceptCharset="utf-8" className="eprint-form" id="eprint-form" >
                       <p className="eprint-form-t">材料說明</p>
                         <table className="eprint-form-table">
                             <thead className="eprint-form-table-head">

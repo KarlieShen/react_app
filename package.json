@@ -4,14 +4,12 @@
   "description": "react+webpack+es6",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack-dev-server --open"
   },
   "author": "Karlie_shen",
   "license": "ISC",
   "dependencies": {
-    "antd": "^2.13.3",
     "file-loader": "0.11.1",
     "react": "15.4.2",
     "react-dom": "15.4.2",
